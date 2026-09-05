@@ -40,7 +40,7 @@
     <header class="fixed top-0 left-0 right-0 z-50 bg-slate900/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href="#" class="font-bold text-lg tracking-tight bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
-                &lt;TuNombre /&gt;
+                &lt;Juan Andrés /&gt;
             </a>
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
                 <a href="#web-projects" class="hover:text-white transition-colors">Despliegues Web</a>
@@ -177,7 +177,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE APLICACIONES MÓVILES (Mockup + Capturas + Contacto APK) -->
+    <!-- SECCIÓN DE APLICACIONES MÓVILES -->
     <section id="mobile-apps" class="py-24 px-6 max-w-7xl mx-auto border-t border-slate-800/60">
         <div class="mb-12">
             <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">Aplicaciones Móviles (.APK)</h2>
@@ -186,7 +186,7 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            <!-- Mockup de Smartphone (Muestra la captura de la App 1 por defecto) -->
+            <!-- Mockup de Smartphone -->
             <div class="lg:col-span-5 flex justify-center">
                 <div class="relative w-[280px] h-[570px] bg-slate-950 rounded-[45px] p-3 border-4 border-slate-700 shadow-2xl shadow-violet-500/10">
                     <div class="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-5 bg-slate-900 rounded-full z-20 flex items-center justify-center">
@@ -194,7 +194,6 @@
                         <div class="w-2 h-2 bg-slate-800 rounded-full"></div>
                     </div>
                     <div class="relative w-full h-full bg-slate-900 rounded-[35px] overflow-hidden flex flex-col items-center justify-center border border-slate-800">
-                        <!-- INSTRUCCIÓN: Guarda la captura de tu app móvil como img/app1capture.png -->
                         <img src="img/app1capture.png" alt="App Mockup" onerror="this.src='https://via.placeholder.com/300x600/0f172a/8b5cf6?text=App+1+Screenshot'" class="w-full h-full object-cover opacity-90">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate950/80 via-transparent to-transparent flex flex-col justify-end p-6 text-center">
                             <span class="text-xs font-semibold text-violet-400 mb-1">UI / UX Showcase</span>
@@ -210,7 +209,6 @@
                 <!-- APP 1 -->
                 <div class="bg-slate800/50 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                     <div class="flex items-start gap-4">
-                        <!-- Miniatura de la App 1 -->
                         <div class="w-16 h-20 rounded-xl overflow-hidden bg-slate-900 border border-slate-700 flex-shrink-0">
                             <img src="img/app1capture.png" alt="App 1" onerror="this.src='https://via.placeholder.com/100x150/0f172a/8b5cf6?text=App1'" class="w-full h-full object-cover">
                         </div>
@@ -226,18 +224,15 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Botón que abre el correo para solicitar la APK -->
-                    <a href="mailto:juan.andresfilgueira@gmail.com?subject=Solicitud%20de%20APK%20-%20App%201&body=Hola%20Juan,%20estoy%20interesado%20en%20descargar%20el%20APK%20de%20tu%20aplicación%20móvil%20App%201.%20¿Podrías%20compartirme%20el%20enlace%20de%20descarga?" 
-                       onclick="alert('Debido al tamaño del archivo (>50MB), comunícate con el creador para solicitar el APK. Se abrirá tu cliente de correo para enviar un mensaje a juan.andresfilgueira@gmail.com');"
-                       class="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-violet-600 text-white text-xs font-semibold rounded-xl hover:opacity-95 transition-all shadow-lg shadow-violet-500/20 whitespace-nowrap text-center">
-                        <i class="fa-solid fa-envelope"></i> Solicitar APK
-                    </a>
+                    <!-- Botón que activa el Modal Moderno -->
+                    <button onclick="openModal('Nombre de tu App 1')" class="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-violet-600 text-white text-xs font-semibold rounded-xl hover:opacity-95 transition-all shadow-lg shadow-violet-500/20 whitespace-nowrap cursor-pointer">
+                        <i class="fa-solid fa-download"></i> Solicitar APK
+                    </button>
                 </div>
 
                 <!-- APP 2 -->
                 <div class="bg-slate800/50 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                     <div class="flex items-start gap-4">
-                        <!-- Miniatura de la App 2 -->
                         <div class="w-16 h-20 rounded-xl overflow-hidden bg-slate-900 border border-slate-700 flex-shrink-0">
                             <img src="img/app2capture.png" alt="App 2" onerror="this.src='https://via.placeholder.com/100x150/0f172a/3b82f6?text=App2'" class="w-full h-full object-cover">
                         </div>
@@ -253,18 +248,45 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Botón que abre el correo para solicitar la APK -->
-                    <a href="mailto:juan.andresfilgueira@gmail.com?subject=Solicitud%20de%20APK%20-%20App%202&body=Hola%20Juan,%20estoy%20interesado%20en%20descargar%20el%20APK%20de%20tu%20aplicación%20móvil%20App%202.%20¿Podrías%20compartirme%20el%20enlace%20de%20descarga?" 
-                       onclick="alert('Debido al tamaño del archivo (>50MB), comunícate con el creador para solicitar el APK. Se abrirá tu cliente de correo para enviar un mensaje a juan.andresfilgueira@gmail.com');"
-                       class="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-violet-600 text-white text-xs font-semibold rounded-xl hover:opacity-95 transition-all shadow-lg shadow-violet-500/20 whitespace-nowrap text-center">
-                        <i class="fa-solid fa-envelope"></i> Solicitar APK
-                    </a>
+                    <!-- Botón que activa el Modal Moderno -->
+                    <button onclick="openModal('Nombre de tu App 2')" class="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-violet-600 text-white text-xs font-semibold rounded-xl hover:opacity-95 transition-all shadow-lg shadow-violet-500/20 whitespace-nowrap cursor-pointer">
+                        <i class="fa-solid fa-download"></i> Solicitar APK
+                    </button>
                 </div>
 
             </div>
 
         </div>
     </section>
+
+    <!-- MODAL MODERNIZADO (Estilo Vercel / Tema Oscuro) -->
+    <div id="apkModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-slate800 border border-slate-700 w-full max-w-md mx-4 rounded-2xl p-6 shadow-2xl transform scale-95 transition-transform duration-300" id="modalContent">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2 text-violet-400">
+                    <i class="fa-solid fa-triangle-exclamation text-lg"></i>
+                    <h3 class="text-base font-bold text-white">Descarga de Archivo Grande</h3>
+                </div>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-white transition-colors">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <p id="modalAppTitle" class="text-sm font-semibold text-slate-200 mb-2"></p>
+            <p class="text-xs text-slate-400 mb-6 leading-relaxed">
+                Debido a que el archivo APK pesa más de **50MB**, GitHub no permite la descarga directa desde esta página. Por favor, comunícate conmigo directamente y con gusto te enviaré el archivo.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+                <a id="modalEmailBtn" href="#" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 bg-gradient-to-r from-blue-600 to-violet-600 text-white text-xs font-semibold rounded-xl hover:opacity-95 transition-all shadow-md">
+                    <i class="fa-solid fa-envelope"></i> Enviar Correo
+                </a>
+                <button onclick="closeModal()" class="py-2.5 px-4 bg-slate-700 text-slate-300 text-xs font-semibold rounded-xl hover:bg-slate-600 transition-all">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- SECCIÓN DE CONTACTO -->
     <section id="contacto" class="py-20 px-6 max-w-4xl mx-auto text-center border-t border-slate-800/60">
@@ -285,8 +307,54 @@
 
     <!-- FOOTER -->
     <footer class="py-8 px-6 text-center border-t border-slate-900 bg-slate-950 text-xs text-slate-500">
-        <p>© 2026 Juan Andrés Filgueira. Todos los derechos reservados.</p>
+        <p>© 2026 Juan Andrés Filgueira. Todos los derechos reservados. Diseñado con Tailwind CSS.</p>
     </footer>
+
+    <!-- Script para controlar el Modal Moderno -->
+    <script>
+        function openModal(appName) {
+            const modal = document.getElementById('apkModal');
+            const modalContent = document.getElementById('modalContent');
+            const titleEl = document.getElementById('modalAppTitle');
+            const emailBtn = document.getElementById('modalEmailBtn');
+
+            titleEl.textContent = `Estás intentando descargar: "${appName}"`;
+            
+            const email = "juan.andresfilgueira@gmail.com";
+            const subject = encodeURIComponent(`Solicitud de APK - ${appName}`);
+            const body = encodeURIComponent(`Hola Juan Andrés,\n\nEstoy interesado en descargar el archivo APK de "${appName}" para probar tu aplicación móvil. ¿Podrías compartirme el enlace de descarga?\n\n¡Gracias!`);
+            
+            emailBtn.href = `mailto:${email}?subject=${subject}&body=${body}`;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('apkModal');
+            const modalContent = document.getElementById('modalContent');
+
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Cerrar modal haciendo clic fuera de él
+        window.onclick = function(event) {
+            const modal = document.getElementById('apkModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
 
 </body>
 </html>
