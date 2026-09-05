@@ -83,9 +83,7 @@
                 <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">Despliegues Web</h2>
                 <p class="text-slate-400 text-sm">Aplicaciones web y plataformas desplegadas en producción con arquitectura moderna.</p>
             </div>
-            <div class="mt-4 md:mt-0 text-xs text-slate-500 font-mono">
-                
-            </div>
+            <div class="mt-4 md:mt-0 text-xs text-slate-500 font-mono"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -111,9 +109,10 @@
                         <a href="https://ruah-fundation.vercel.app/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2 px-3 bg-white text-slate-900 text-xs font-semibold rounded-lg hover:bg-slate-100 transition-all">
                             <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Visitar Web
                         </a>
-                        <a href="URL_DE_TU_REPOSITORIO_1" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2 px-3 bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg hover:bg-slate-600 transition-all">
+                        <!-- Botón que activa el modal de autorización para código -->
+                        <button onclick="openCodeModal('Ruah Foundation')" class="flex items-center justify-center gap-2 py-2 px-3 bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg hover:bg-slate-600 transition-all cursor-pointer">
                             <i class="fa-brands fa-github"></i> Código
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -139,9 +138,10 @@
                         <a href="https://dobleaweb.vercel.app/#cotizador-section" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2 px-3 bg-white text-slate-900 text-xs font-semibold rounded-lg hover:bg-slate-100 transition-all">
                             <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Visitar Web
                         </a>
-                        <a href="URL_DE_TU_REPOSITORIO_2" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2 px-3 bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg hover:bg-slate-600 transition-all">
+                        <!-- Botón que activa el modal de autorización para código -->
+                        <button onclick="openCodeModal('Doble A Web')" class="flex items-center justify-center gap-2 py-2 px-3 bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg hover:bg-slate-600 transition-all cursor-pointer">
                             <i class="fa-brands fa-github"></i> Código
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -167,9 +167,10 @@
                         <a href="https://centrodenegocioshblonline-netizen.github.io/AGENDAOFICINA/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2 px-3 bg-white text-slate-900 text-xs font-semibold rounded-lg hover:bg-slate-100 transition-all">
                             <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Visitar Web
                         </a>
-                        <a href="https://centrodenegocioshblonline-netizen.github.io/AGENDAOFICINA/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2 px-3 bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg hover:bg-slate-600 transition-all">
+                        <!-- Botón que activa el modal de autorización para código -->
+                        <button onclick="openCodeModal('Agenda Oficina')" class="flex items-center justify-center gap-2 py-2 px-3 bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg hover:bg-slate-600 transition-all cursor-pointer">
                             <i class="fa-brands fa-github"></i> Código
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -186,7 +187,7 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            <!-- Mockup de Smartphone (Muestra app1capture.jpg) -->
+            <!-- Mockup de Smartphone -->
             <div class="lg:col-span-5 flex justify-center">
                 <div class="relative w-[280px] h-[570px] bg-slate-950 rounded-[45px] p-3 border-4 border-slate-700 shadow-2xl shadow-violet-500/10">
                     <div class="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-5 bg-slate-900 rounded-full z-20 flex items-center justify-center">
@@ -209,7 +210,6 @@
                 <!-- APP 1 -->
                 <div class="bg-slate800/50 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                     <div class="flex items-start gap-4">
-                        <!-- Logo de la App 1 -->
                         <div class="w-16 h-16 rounded-2xl overflow-hidden bg-slate-900 border border-slate-700 flex-shrink-0 shadow-md flex items-center justify-center">
                             <img src="img/app_logo1.png" alt="Logo App 1" onerror="this.src='https://via.placeholder.com/100/0f172a/8b5cf6?text=Logo1'" class="w-full h-full object-cover">
                         </div>
@@ -233,7 +233,6 @@
                 <!-- APP 2 -->
                 <div class="bg-slate800/50 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                     <div class="flex items-start gap-4">
-                        <!-- Logo de la App 2 -->
                         <div class="w-16 h-16 rounded-2xl overflow-hidden bg-slate-900 border border-slate-700 flex-shrink-0 shadow-md flex items-center justify-center">
                             <img src="img/app_logo2.png" alt="Logo App 2" onerror="this.src='https://via.placeholder.com/100/0f172a/3b82f6?text=Logo2'" class="w-full h-full object-cover">
                         </div>
@@ -249,7 +248,7 @@
                             </div>
                         </div>
                     </div>
-                    <button onclick="openModal('Nombre de tu App 2')" class="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-violet-600 text-white text-xs font-semibold rounded-xl hover:opacity-95 transition-all shadow-lg shadow-violet-500/20 whitespace-nowrap cursor-pointer">
+                    <button onclick="openApkModal('Club Manager')" class="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-violet-600 text-white text-xs font-semibold rounded-xl hover:opacity-95 transition-all shadow-lg shadow-violet-500/20 whitespace-nowrap cursor-pointer">
                         <i class="fa-solid fa-envelope"></i> Solicitar APK
                     </button>
                 </div>
@@ -259,15 +258,15 @@
         </div>
     </section>
 
-    <!-- MODAL MODERNIZADO -->
+    <!-- MODAL PARA APKS (Archivo Grande) -->
     <div id="apkModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
-        <div class="bg-slate800 border border-slate-700 w-full max-w-md mx-4 rounded-2xl p-6 shadow-2xl transform scale-95 transition-transform duration-300" id="modalContent">
+        <div class="bg-slate800 border border-slate-700 w-full max-w-md mx-4 rounded-2xl p-6 shadow-2xl transform scale-95 transition-transform duration-300" id="apkModalContent">
             <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center gap-2 text-violet-400">
                     <i class="fa-solid fa-triangle-exclamation text-lg"></i>
                     <h3 class="text-base font-bold text-white">Descarga de Archivo Grande</h3>
                 </div>
-                <button onclick="closeModal()" class="text-slate-400 hover:text-white transition-colors">
+                <button onclick="closeApkModal()" class="text-slate-400 hover:text-white transition-colors cursor-pointer">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div>
@@ -281,7 +280,36 @@
                 <a id="modalEmailBtn" href="#" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 bg-gradient-to-r from-blue-600 to-violet-600 text-white text-xs font-semibold rounded-xl hover:opacity-95 transition-all shadow-md">
                     <i class="fa-solid fa-envelope"></i> Enviar Correo
                 </a>
-                <button onclick="closeModal()" class="py-2.5 px-4 bg-slate-700 text-slate-300 text-xs font-semibold rounded-xl hover:bg-slate-600 transition-all">
+                <button onclick="closeApkModal()" class="py-2.5 px-4 bg-slate-700 text-slate-300 text-xs font-semibold rounded-xl hover:bg-slate-600 transition-all cursor-pointer">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NUEVO MODAL PARA REQUISITO DE CÓDIGO FUENTE (Necesitas autorización) -->
+    <div id="codeModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-slate800 border border-slate-700 w-full max-w-md mx-4 rounded-2xl p-6 shadow-2xl transform scale-95 transition-transform duration-300" id="codeModalContent">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2 text-amber-400">
+                    <i class="fa-solid fa-lock text-lg"></i>
+                    <h3 class="text-base font-bold text-white">Acceso Restringido</h3>
+                </div>
+                <button onclick="closeCodeModal()" class="text-slate-400 hover:text-white transition-colors cursor-pointer">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <p id="modalProjectTitle" class="text-sm font-semibold text-slate-200 mb-2"></p>
+            <p class="text-xs text-slate-400 mb-6 leading-relaxed">
+                El código fuente de este proyecto es privado. **Necesitas autorización del creador** para poder visualizarlo o utilizarlo.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+                <a id="codeEmailBtn" href="#" class="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 bg-gradient-to-r from-blue-600 to-violet-600 text-white text-xs font-semibold rounded-xl hover:opacity-95 transition-all shadow-md">
+                    <i class="fa-solid fa-key"></i> Solicitar Autorización
+                </a>
+                <button onclick="closeCodeModal()" class="py-2.5 px-4 bg-slate-700 text-slate-300 text-xs font-semibold rounded-xl hover:bg-slate-600 transition-all cursor-pointer">
                     Cerrar
                 </button>
             </div>
@@ -310,11 +338,12 @@
         <p>© 2026 Juan Andrés Filgueira. Todos los derechos reservados. Diseñado con Tailwind CSS.</p>
     </footer>
 
-    <!-- Script para controlar el Modal -->
+    <!-- Scripts para controlar ambos Modales -->
     <script>
-        function openModal(appName) {
+        // Funciones para el Modal de APK
+        function openApkModal(appName) {
             const modal = document.getElementById('apkModal');
-            const modalContent = document.getElementById('modalContent');
+            const modalContent = document.getElementById('apkModalContent');
             const titleEl = document.getElementById('modalAppTitle');
             const emailBtn = document.getElementById('modalEmailBtn');
 
@@ -334,9 +363,9 @@
             }, 10);
         }
 
-        function closeModal() {
+        function closeApkModal() {
             const modal = document.getElementById('apkModal');
-            const modalContent = document.getElementById('modalContent');
+            const modalContent = document.getElementById('apkModalContent');
 
             modal.classList.add('opacity-0');
             modalContent.classList.remove('scale-100');
@@ -347,10 +376,51 @@
             }, 300);
         }
 
+        // Funciones para el Modal de Código Fuente (Autorización)
+        function openCodeModal(projectName) {
+            const modal = document.getElementById('codeModal');
+            const modalContent = document.getElementById('codeModalContent');
+            const titleEl = document.getElementById('modalProjectTitle');
+            const emailBtn = document.getElementById('codeEmailBtn');
+
+            titleEl.textContent = `Proyecto: "${projectName}"`;
+            
+            const email = "juan.andresfilgueira@gmail.com";
+            const subject = encodeURIComponent(`Solicitud de autorización para código - ${projectName}`);
+            const body = encodeURIComponent(`Hola Juan Andrés,\n\nMe interesa revisar el código fuente de tu proyecto "${projectName}". ¿Podrías otorgarme autorización para acceder a él?\n\n¡Gracias!`);
+            
+            emailBtn.href = `mailto:${email}?subject=${subject}&body=${body}`;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeCodeModal() {
+            const modal = document.getElementById('codeModal');
+            const modalContent = document.getElementById('codeModalContent');
+
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Cerrar modales haciendo clic fuera de ellos
         window.onclick = function(event) {
-            const modal = document.getElementById('apkModal');
-            if (event.target == modal) {
-                closeModal();
+            const apkModal = document.getElementById('apkModal');
+            const codeModal = document.getElementById('codeModal');
+            if (event.target == apkModal) {
+                closeApkModal();
+            }
+            if (event.target == codeModal) {
+                closeCodeModal();
             }
         }
     </script>
