@@ -1,536 +1,302 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juan - Post-Productor Senior | Motion Graphics & VFX</title>
-    
-    <!-- Preload crítico para rendimiento -->
-    <link rel="preload" href="img/Portada1.webp" as="image">
-    <link rel="preload" href="img/ellayyo.webp" as="image">
-    
+    <title>Mi Portafolio | Desarrollador Web & Mobile</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate900: '#0F172A',
+                        slate800: '#1E293B',
+                        slate700: '#334155',
+                        accentBlue: '#3B82F6',
+                        accentViolet: '#8B5CF6',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ==========================================================================
-           VARIABLES CSS NETFLIX - OPTIMIZADAS
-           ========================================================================== */
-        :root {
-            --netflix-red: #e50914;
-            --netflix-black: #141414;
-            --netflix-dark: #181818;
-            --netflix-gray: #333;
-            --text-primary: #ffffff;
-            --text-secondary: #b3b3b3;
-            --text-muted: #808080;
-            --match-green: #46d369;
-            --gradient-hero: linear-gradient(70deg, rgba(20,20,20,0.95) 10%, transparent 60%),
-                              linear-gradient(to top, var(--netflix-black) 5%, transparent 30%);
+        /* Estilos personalizados adicionales y animaciones suaves */
+        body {
+            background-color: #0F172A;
+            color: #F8FAFC;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
-
-        /* ==========================================================================
-           RESET ULTRA-LIMPIO (70% más pequeño)
-           ========================================================================== */
-        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        html{scroll-behavior:smooth}
-        body{font-family:'Inter',system-ui,sans-serif;background:var(--netflix-black);color:var(--text-primary);overflow-x:hidden;line-height:1.6;min-height:100vh}
-
-        /* ==========================================================================
-           LAYOUT PRINCIPAL
-           ========================================================================== */
-        #netflix-wrapper{position:relative;width:100%;min-height:100vh;background:var(--netflix-black);transition:opacity .8s ease}
-        .perfiles-activos{display:flex;justify-content:center;align-items:center;min-height:100vh}
-        #mainCatalog{width:100%;display:none}
-
-        /* ==========================================================================
-           PANTALLA DE PERFILES
-           ========================================================================== */
-        .profile-container{text-align:center;padding:2rem}
-        .main-title{font-size:clamp(2rem,5vw,4rem);margin-bottom:3rem;color:var(--text-primary);font-weight:900}
-        .profile-gate{display:flex;gap:3rem;justify-content:center;flex-wrap:wrap}
-        .profile-card{cursor:pointer;transition:all .3s ease;text-decoration:none;color:inherit;display:flex;flex-direction:column;align-items:center}
-        .profile-card:hover .profile-icon{transform:scale(1.08);border:3px solid var(--text-primary)}
-        .profile-icon{width:150px;height:150px;border-radius:8px;display:flex;justify-content:center;align-items:center;font-size:4rem;transition:all .3s ease;background:var(--netflix-dark)}
-        .bg-blue{background:linear-gradient(135deg,#1e88e5,#1976d2)}
-        .bg-gradient{background:linear-gradient(135deg,var(--netflix-gray),#222)}
-        .plus-icon{font-size:6rem;color:var(--text-muted)}
-        .profile-name{font-size:1.3rem;margin-top:1rem;color:var(--text-muted);font-weight:500}
-
-        /* ==========================================================================
-           MODAL LOGIN
-           ========================================================================== */
-        .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:1000;justify-content:center;align-items:center;padding:2rem}
-        .login-box{background:var(--netflix-dark);padding:4rem 3rem;border-radius:12px;width:min(90vw,450px);text-align:center}
-        .login-box h2{font-size:2.5rem;margin-bottom:2rem;color:var(--text-primary)}
-        #userInput{width:100%;padding:1rem;border-radius:6px;background:var(--netflix-gray);border:none;color:var(--text-primary);font-size:1.1rem;margin-bottom:1.5rem}
-        #userInput::placeholder{color:var(--text-muted)}
-        .login-btn{width:100%;padding:1.2rem;border:none;background:var(--netflix-red);color:var(--text-primary);font-weight:700;font-size:1.1rem;border-radius:6px;cursor:pointer;transition:background .2s}
-        .login-btn:hover{background:#c40813}
-
-        /* ==========================================================================
-           HERO SECTION
-           ========================================================================== */
-        .hero-container{position:relative;height:80vh;overflow:hidden;background:var(--netflix-black)}
-        .hero-video-background{position:absolute;inset:0;pointer-events:none}
-        .hero-video-background iframe{width:100vw;height:56.25vw;min-height:100vh;min-width:177.77vh;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
-        .hero-overlay{position:absolute;inset:0;background:var(--gradient-hero);display:flex;align-items:center;padding:0 4%;z-index:2}
-        .hero-content{max-width:45%}
-        .hero-content h1{font-size:clamp(3rem,6vw,6rem);font-weight:900;margin-bottom:.5rem;line-height:1.1}
-        .hero-content h3{color:var(--text-muted);margin-bottom:1.5rem;font-weight:500;font-size:1.4rem}
-        .hero-description{font-size:clamp(1rem,1.8vw,1.4rem);margin-bottom:2rem;max-width:600px;line-height:1.5;text-shadow:0 2px 10px rgba(0,0,0,.8)}
-        .hero-buttons{display:flex;gap:1rem;align-items:center}
-        .btn-play,.btn-info{padding:1rem 2rem;border-radius:6px;font-weight:700;font-size:1.1rem;cursor:pointer;border:none;display:flex;align-items:center;gap:.5rem;transition:all .2s}
-        .btn-play{background:var(--text-primary);color:#000}
-        .btn-info{background:rgba(109,109,110,.8);color:var(--text-primary)}
-        .btn-play:hover,.btn-info:hover{opacity:.85;transform:translateY(-2px)}
-
-        /* ==========================================================================
-           ROW TITLES & CARRUSELES
-           ========================================================================== */
-        .row-title{font-size:clamp(1.5rem,2.5vw,2.5rem);font-weight:800;color:var(--text-primary);margin:3rem 0 1.5rem 4%;letter-spacing:.5px}
-        .top-10-wrapper{display:flex;overflow-x:auto;padding:2rem 4% 4rem;gap:3rem;scrollbar-width:none;scroll-behavior:smooth}
-        .top-10-wrapper::-webkit-scrollbar{display:none}
-        .top-10-card{display:flex;align-items:center;min-width:280px;transition:all .4s cubic-bezier(.25,1,.5,1);cursor:pointer}
-        .top-10-card:hover{transform:scale(1.12);z-index:10}
-        .number{font-size:12rem;font-weight:900;color:var(--netflix-black);-webkit-text-stroke:3px #595959;line-height:1;margin-right:-3rem;flex-shrink:0}
-        .top-10-card:hover .number{-webkit-text-stroke:3px var(--text-primary)}
-        .video-thumbnail{position:relative;flex-shrink:0}
-        .video-thumbnail img{width:160px;height:230px;object-fit:cover;border-radius:8px;box-shadow:0 20px 40px rgba(0,0,0,.6);transition:transform .3s}
-        .video-thumbnail:hover img{transform:scale(1.05)}
-        .video-thumbnail::before{content:"N";position:absolute;top:.5rem;left:.8rem;color:var(--netflix-red);font-weight:900;font-size:1.3rem;z-index:3}
-
-        /* ==========================================================================
-           GRID SUGERENCIAS (DISEÑOS + EXPERIENCIA)
-           ========================================================================== */
-        .suggested-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;padding:0 4% 8rem}
-        .suggested-card{position:relative;background:var(--netflix-dark);border-radius:12px;overflow:hidden;transition:all .4s cubic-bezier(.25,1,.5,1);cursor:pointer}
-        .suggested-card:hover{transform:scale(1.15) translateY(-25px);box-shadow:0 30px 60px rgba(0,0,0,.8);z-index:100}
-        .suggested-thumb img{width:100%;height:160px;object-fit:cover;display:block}
-        .card-info-hover{padding:1.5rem;opacity:0;visibility:hidden;transition:opacity .4s ease-in-out;background:var(--netflix-dark)}
-        .suggested-card:hover .card-info-hover{opacity:1;visibility:visible}
-        .info-header{display:flex;align-items:center;gap:.5rem;margin-bottom:.8rem}
-        .match-score{color:var(--match-green);font-weight:700;font-size:.95rem}
-        .year-label{color:var(--text-secondary);font-size:.9rem}
-        .card-title{color:var(--text-primary);margin:.5rem 0 .8rem;font-size:1.1rem;font-weight:600}
-        .card-desc{color:var(--text-secondary);font-size:.85rem;line-height:1.5}
-
-        /* ==========================================================================
-           MODAL NETFLIX (DETAIL VIDEO)
-           ========================================================================== */
-        .netflix-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;justify-content:center;align-items:flex-start;padding:3rem 2rem;overflow-y:auto}
-        .modal-content{background:var(--netflix-dark);width:100%;max-width:900px;margin:0 auto;border-radius:16px;overflow:hidden;position:relative;max-height:90vh}
-        .modal-video-container{aspect-ratio:16/9;width:100%}
-        .modal-video-container iframe{width:100%;height:100%;border:none}
-        .modal-info{padding:3rem}
-        .close-modal{position:absolute;top:1.5rem;right:2rem;font-size:3rem;color:var(--text-primary);cursor:pointer;z-index:11;transition:color .2s}
-        .close-modal:hover{color:var(--netflix-red)}
-        #modalTitulo{font-size:clamp(2rem,4vw,3.5rem);margin-bottom:1.5rem;font-weight:900}
-        #modalDesc .info-header{margin-bottom:1.5rem;font-size:1.2rem}
-        #modalDesc p{font-size:1.3rem;line-height:1.7;color:var(--text-secondary)}
-
-        /* ==========================================================================
-           PERFIL PROGRAMADOR (MATRIX MODE)
-           ========================================================================== */
-        .programador-hero{background-size:cover;background-position:center;background-attachment:fixed;position:relative}
-        .programador-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(70deg,#000 30%,transparent 95%)}
-        .programador-content{padding:4% 4%;max-width:1200px;margin:0 auto}
-        .blink{animation:blink 1s linear infinite}
-        @keyframes blink{50%{opacity:0}}
-        .tech-stack{display:flex;flex-wrap:wrap;gap:1rem;padding:2rem 4% 6rem}
-        .tech-tag{padding:.8rem 1.5rem;border:2px solid var(--match-green);color:var(--match-green);border-radius:6px;font-family:monospace;font-weight:500;font-size:.95rem;transition:all .3s}
-        .tech-tag:hover{background:var(--match-green);color:#000;transform:translateY(-3px)}
-
-        /* ==========================================================================
-           PERFIL VALERIA (ROMÁNTICO)
-           ========================================================================== */
-        .valeria-hero{position:fixed;inset:0;background:var(--netflix-black);z-index:9999;display:flex;align-items:center;justify-content:center;overflow:hidden}
-        .valeria-content{width:95%;max-width:1200px;display:flex;gap:4rem;align-items:center;padding:2rem;animation:fadeInUp 1.5s ease}
-        .valeria-portrait{flex:0 0 400px}
-        .valeria-portrait img{width:100%;border-radius:16px;box-shadow:0 0 60px rgba(0,0,0,.9);border:1px solid rgba(255,255,255,.15)}
-        .valeria-text{flex:1}
-        .valeria-badge{background:var(--netflix-red);color:var(--text-primary);padding:.3rem .8rem;font-weight:700;border-radius:4px;font-size:.9rem}
-        .valeria-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
-        .valeria-title{font-size:clamp(3.5rem,8vw,6rem);font-weight:900;margin:0 0 2rem 0;line-height:1}
-        .valeria-desc{font-size:clamp(1.2rem,2vw,1.8rem);line-height:1.7;color:var(--text-secondary);margin-bottom:3rem;max-width:700px}
-        .valeria-buttons{display:flex;gap:1.5rem}
-        .btn-reanudar{background:var(--text-primary);color:#000;padding:1.2rem 3rem;border-radius:8px;font-weight:700;font-size:1.2rem;cursor:pointer;border:none;display:flex;align-items:center;gap:1rem;transition:all .3s}
-        .btn-reanudar:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(255,255,255,.3)}
-        .btn-lista{background:rgba(109,109,110,.7);color:var(--text-primary);padding:1.2rem 3rem;border-radius:8px;font-weight:700;font-size:1.2rem;cursor:pointer;border:none;transition:opacity .3s}
-        .btn-lista:hover{opacity:.8}
-
-        /* ==========================================================================
-           ANIMACIONES
-           ========================================================================== */
-        @keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
-        @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-
-        /* ==========================================================================
-           RESPONSIVE (Mobile First)
-           ========================================================================== */
-        @media (max-width:1024px){
-            .hero-content{max-width:60%;padding-right:2rem}
-            .row-title{margin-left:5%}
-            .top-10-wrapper{gap:2rem;padding:1.5rem 5%}
-            .suggested-grid{gap:1rem;padding:0 5% 6rem}
-        }
-        @media (max-width:768px){
-            .profile-gate{flex-direction:column;gap:2rem}
-            .hero-content{max-width:90%;padding:0 2rem}
-            .hero-buttons{flex-direction:column;width:100%;gap:.8rem}
-            .btn-play,.btn-info{width:100%;justify-content:center}
-            .top-10-wrapper{padding:1rem 5%;gap:1.5rem}
-            .top-10-card{min-width:220px}
-            .number{font-size:8rem;margin-right:-2rem}
-            .video-thumbnail img{width:120px;height:170px}
-            .suggested-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));padding:0 5% 4rem}
-            .netflix-modal{padding:2rem 1rem}
-            .modal-info{padding:2rem 1.5rem}
-            .valeria-content{flex-direction:column;text-align:center;gap:2rem;padding:1rem}
-            .valeria-portrait{flex:0 0 300px}
-        }
-        @media (max-width:480px){
-            .login-box{padding:2.5rem 2rem;width:95vw}
-            .row-title{font-size:1.8rem;margin-left:6%}
-            .tech-stack{padding:1.5rem 5% 4rem}
+        .glow-effect:hover {
+            box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.3);
         }
     </style>
 </head>
-<body>
-    <div id="netflix-wrapper" class="netflix-body perfiles-activos">
-        <!-- PANTALLA DE PERFILES -->
-        <div id="sectionPerfiles" class="profile-container">
-            <h1 class="main-title">¿Quién está viendo ahora?</h1>
-            <div class="profile-gate">
-                <div class="profile-card" onclick="openLogin()">
-                    <div class="profile-icon bg-blue">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="60">
-                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                        </svg>
-                    </div>
-                    <span class="profile-name">Invitado</span>
-                </div>
-                <div class="profile-card" onclick="openLogin()">
-                    <div class="profile-icon bg-gradient">
-                        <span class="plus-icon">+</span>
-                    </div>
-                    <span class="profile-name">Agregar perfil</span>
-                </div>
+<body class="antialiased selection:bg-violet-500 selection:text-white">
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate900/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="font-bold text-lg tracking-tight bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
+                &lt;TuNombre /&gt;
+            </a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#web-projects" class="hover:text-white transition-colors">Despliegues Web</a>
+                <a href="#mobile-apps" class="hover:text-white transition-colors">Apps Móviles</a>
+                <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
+            </nav>
+            <a href="#contacto" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-gradient-to-r from-blue-600 to-violet-600 rounded-lg hover:opacity-95 transition-all shadow-lg shadow-violet-500/20">
+                <span>¡Contáctame!</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="pt-32 pb-20 px-6 border-b border-slate-800/60">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs text-violet-400 mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Disponible para nuevos proyectos
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">
+                Construyendo experiencias digitales <span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-violet-400 bg-clip-text text-transparent">modernas y escalables</span>.
+            </h1>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10">
+                Hola, soy un desarrollador enfocado en crear interfaces de usuario impecables, aplicaciones web de alto rendimiento y soluciones móviles nativas o multiplataforma.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#web-projects" class="px-6 py-3 bg-white text-slate900 font-semibold rounded-xl hover:bg-slate-100 transition-all shadow-lg">
+                    Ver Proyectos Web
+                </a>
+                <a href="#mobile-apps" class="px-6 py-3 bg-slate-800 border border-slate-700 text-slate-200 font-semibold rounded-xl hover:bg-slate-700 transition-all">
+                    Descargar APKs
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PROYECTOS WEB (Estilo Vercel Previews) -->
+    <section id="web-projects" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+                <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">Despliegues Web</h2>
+                <p class="text-slate-400 text-sm">Aplicaciones web y plataformas desplegadas en producción con arquitectura moderna.</p>
+            </div>
+            <div class="mt-4 md:mt-0 text-xs text-slate-500 font-mono">
+                // Vercel Preview Cards Style
             </div>
         </div>
 
-        <!-- MODAL LOGIN -->
-        <div id="loginModal" class="modal-overlay">
-            <div class="login-box">
-                <h2>Iniciar sesión</h2>
-                <input type="text" placeholder="Escribe 'invitado'" id="userInput">
-                <button class="login-btn" onclick="validarAcceso()">Entrar</button>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- TARJETA DE PROYECTO 1 -->
+            <div class="group bg-slate800/50 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition-all duration-300 glow-effect flex flex-col">
+                <!-- Área de Miniatura (Preview estilo Vercel) -->
+                <div class="relative w-full h-48 bg-slate900 border-b border-slate-800 overflow-hidden flex items-center justify-center">
+                    <!-- INSTRUCCIÓN: Reemplaza la etiqueta <img> con tu imagen de preview o un servicio de captura por URL -->
+                    <img src="https://via.placeholder.com/600x400/0f172a/38bdf8?text=Preview+Proyecto+1" alt="Preview Proyecto 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+                    <!-- Badge de Estado -->
+                    <div class="absolute top-3 right-3 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-medium px-2.5 py-1 rounded-full flex items-center gap-1.5 backdrop-blur-md">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Deployed
+                    </div>
+                </div>
+
+                <!-- Contenido de la Tarjeta -->
+                <div class="p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-1">Nombre del Proyecto 1</h3>
+                        <p class="text-xs text-slate-400 mb-4 line-clamp-2">Breve descripción del proyecto web, tecnologías utilizadas y el problema que resuelve para el usuario.</p>
+                        
+                        <!-- URL Limpia -->
+                        <div class="flex items-center gap-2 text-xs text-slate-400 font-mono mb-6 bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
+                            <i class="fa-solid fa-link text-slate-500"></i>
+                            <span class="truncate">tu-proyecto-1.vercel.app</span>
+                        </div>
+                    </div>
+
+                    <!-- Botones de Acción -->
+                    <div class="grid grid-cols-2 gap-3 pt-4 border-t border-slate-800">
+                        <a href="URL_DE_TU_WEB_1" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2 px-3 bg-white text-slate-900 text-xs font-semibold rounded-lg hover:bg-slate-100 transition-all">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Visitar Web
+                        </a>
+                        <a href="URL_DE_TU_REPOSITORIO_1" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2 px-3 bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg hover:bg-slate-600 transition-all">
+                            <i class="fa-brands fa-github"></i> Código
+                        </a>
+                    </div>
+                </div>
             </div>
+
+            <!-- TARJETA DE PROYECTO 2 -->
+            <div class="group bg-slate800/50 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition-all duration-300 glow-effect flex flex-col">
+                <div class="relative w-full h-48 bg-slate900 border-b border-slate-800 overflow-hidden flex items-center justify-center">
+                    <img src="https://via.placeholder.com/600x400/0f172a/8b5cf6?text=Preview+Proyecto+2" alt="Preview Proyecto 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+                    <div class="absolute top-3 right-3 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-medium px-2.5 py-1 rounded-full flex items-center gap-1.5 backdrop-blur-md">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Deployed
+                    </div>
+                </div>
+
+                <div class="p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-1">Nombre del Proyecto 2</h3>
+                        <p class="text-xs text-slate-400 mb-4 line-clamp-2">Breve descripción del proyecto web, arquitectura y características principales orientadas al rendimiento.</p>
+                        
+                        <div class="flex items-center gap-2 text-xs text-slate-400 font-mono mb-6 bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
+                            <i class="fa-solid fa-link text-slate-500"></i>
+                            <span class="truncate">tu-proyecto-2.vercel.app</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 pt-4 border-t border-slate-800">
+                        <a href="URL_DE_TU_WEB_2" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2 px-3 bg-white text-slate-900 text-xs font-semibold rounded-lg hover:bg-slate-100 transition-all">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Visitar Web
+                        </a>
+                        <a href="URL_DE_TU_REPOSITORIO_2" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2 px-3 bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg hover:bg-slate-600 transition-all">
+                            <i class="fa-brands fa-github"></i> Código
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA DE PROYECTO 3 -->
+            <div class="group bg-slate800/50 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition-all duration-300 glow-effect flex flex-col">
+                <div class="relative w-full h-48 bg-slate900 border-b border-slate-800 overflow-hidden flex items-center justify-center">
+                    <img src="https://via.placeholder.com/600x400/0f172a/3b82f6?text=Preview+Proyecto+3" alt="Preview Proyecto 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+                    <div class="absolute top-3 right-3 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-medium px-2.5 py-1 rounded-full flex items-center gap-1.5 backdrop-blur-md">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Deployed
+                    </div>
+                </div>
+
+                <div class="p-6 flex flex-col flex-grow justify-between">
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-1">Nombre del Proyecto 3</h3>
+                        <p class="text-xs text-slate-400 mb-4 line-clamp-2">Breve descripción de esta aplicación web interactiva, diseño UI y conectividad con APIs externas.</p>
+                        
+                        <div class="flex items-center gap-2 text-xs text-slate-400 font-mono mb-6 bg-slate-900/60 p-2 rounded-lg border border-slate-800/80">
+                            <i class="fa-solid fa-link text-slate-500"></i>
+                            <span class="truncate">tu-proyecto-3.vercel.app</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 pt-4 border-t border-slate-800">
+                        <a href="URL_DE_TU_WEB_3" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2 px-3 bg-white text-slate-900 text-xs font-semibold rounded-lg hover:bg-slate-100 transition-all">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Visitar Web
+                        </a>
+                        <a href="URL_DE_TU_REPOSITORIO_3" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2 px-3 bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg hover:bg-slate-600 transition-all">
+                            <i class="fa-brands fa-github"></i> Código
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE APLICACIONES MÓVILES (Mockup + APKs) -->
+    <section id="mobile-apps" class="py-24 px-6 max-w-7xl mx-auto border-t border-slate-800/60">
+        <div class="mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">Aplicaciones Móviles (.APK)</h2>
+            <p class="text-slate-400 text-sm">Desarrollo nativo y multiplataforma optimizado para dispositivos Android.</p>
         </div>
 
-        <!-- CATÁLOGO PRINCIPAL -->
-        <div id="mainCatalog"></div>
-
-        <!-- MODAL VIDEO DETALLE -->
-        <div id="netflixModal" class="netflix-modal" onclick="cerrarModalExterno(event)">
-            <div class="modal-content">
-                <span class="close-modal" onclick="cerrarNetflixModal()">&times;</span>
-                <div class="modal-video-container">
-                    <iframe id="modalIframe" allowfullscreen></iframe>
-                </div>
-                <div class="modal-info">
-                    <h1 id="modalTitulo"></h1>
-                    <div id="modalDesc"></div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Mockup de Smartphone (Pieza central visual) -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-[280px] h-[570px] bg-slate-950 rounded-[45px] p-3 border-4 border-slate-700 shadow-2xl shadow-violet-500/10">
+                    <!-- Notch / Isla Dinámica simulada -->
+                    <div class="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-5 bg-slate-900 rounded-full z-20 flex items-center justify-center">
+                        <div class="w-3 h-3 bg-slate-950 rounded-full mr-2"></div>
+                        <div class="w-2 h-2 bg-slate-800 rounded-full"></div>
+                    </div>
+                    <!-- Pantalla del Mockup -->
+                    <div class="relative w-full h-full bg-slate-900 rounded-[35px] overflow-hidden flex flex-col items-center justify-center border border-slate-800">
+                        <!-- INSTRUCCIÓN: Reemplaza esta imagen por un screenshot real de tu app móvil -->
+                        <img src="https://via.placeholder.com/300x600/0f172a/8b5cf6?text=App+Screenshot" alt="App Mockup" class="w-full h-full object-cover opacity-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate950/80 via-transparent to-transparent flex flex-col justify-end p-6 text-center">
+                            <span class="text-xs font-semibold text-violet-400 mb-1">UI / UX Showcase</span>
+                            <span class="text-xs text-slate-300">Experiencia fluida y nativa</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Lista de Tarjetas de Apps Móviles -->
+            <div class="lg:col-span-7 space-y-6">
+                
+                <!-- APP 1 -->
+                <div class="bg-slate800/50 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center text-white text-2xl shadow-lg flex-shrink-0">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-1">
+                                <h3 class="text-lg font-semibold text-white">Nombre de la App 1</h3>
+                                <span class="bg-slate-700/60 text-slate-300 text-[10px] font-mono px-2 py-0.5 rounded-md border border-slate-600">v1.2.0</span>
+                            </div>
+                            <p class="text-xs text-slate-400 mb-3 max-w-md">Descripción detallada de la aplicación móvil, características principales y tipo de conectividad que utiliza.</p>
+                            <div class="flex items-center gap-4 text-[11px] text-slate-500">
+                                <span><i class="fa-brands fa-android text-emerald-400 mr-1"></i> Android 8.0+</span>
+                                <span><i class="fa-solid fa-file-arrow-down mr-1"></i> ~15 MB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="URL_DEL_APK_1.apk" download class="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-violet-600 text-white text-xs font-semibold rounded-xl hover:opacity-95 transition-all shadow-lg shadow-violet-500/20 whitespace-nowrap">
+                        <i class="fa-solid fa-download"></i> Descargar APK
+                    </a>
+                </div>
+
+                <!-- APP 2 -->
+                <div class="bg-slate800/50 border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-pink-600 flex items-center justify-center text-white text-2xl shadow-lg flex-shrink-0">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-1">
+                                <h3 class="text-lg font-semibold text-white">Nombre de la App 2</h3>
+                                <span class="bg-slate-700/60 text-slate-300 text-[10px] font-mono px-2 py-0.5 rounded-md border border-slate-600">v2.0.1</span>
+                            </div>
+                            <p class="text-xs text-slate-400 mb-3 max-w-md">Breve descripción de la segunda aplicación móvil enfocada en productividad o herramientas útiles.</p>
+                            <div class="flex items-center gap-4 text-[11px] text-slate-500">
+                                <span><i class="fa-brands fa-android text-emerald-400 mr-1"></i> Android 9.0+</span>
+                                <span><i class="fa-solid fa-file-arrow-down mr-1"></i> ~22 MB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="URL_DEL_APK_2.apk" download class="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-violet-600 text-white text-xs font-semibold rounded-xl hover:opacity-95 transition-all shadow-lg shadow-violet-500/20 whitespace-nowrap">
+                        <i class="fa-solid fa-download"></i> Descargar APK
+                    </a>
+                </div>
+
+            </div>
+
         </div>
-    </div>
+    </section>
 
-    <script>
-        // === DATA ESTRUCTURADA ===
-        const misProyectos = [
-            {id:"sj7p0fIJyx8",portada:"Portada1.webp",titulo:"Motion graphics Promo",match:"98%",year:"2024",calidad:"4K",desc:"Motion Graphics Avanzado: Creación de interfaces dinámicas y trackeo de puntos."},
-                       {id:"VJDT3QK2SDc",portada:"Portada2.webp",titulo:"Motion graphics 3D",match:"95%",year:"2023",calidad:"HD",desc:"Edición de Continuidad: Montaje de video enfocado en el ritmo narrativo."},
-            {id:"wlzmrM0FVF8",portada:"Portada3.webp",titulo:"Animacion 3D",match:"92%",year:"2024",calidad:"4K",desc:"Manipulación de Tiempo: Aplicación de time-remapping y curvas de velocidad."},
-            {id:"9bbZRO4BJtE",portada:"Portada4.webp",titulo:"Video promocional",match:"89%",year:"2024",calidad:"4K",desc:"Animación de Producto: Desarrollo de piezas publicitarias con tipografía cinética."},
-            {id:"5FBR0oQc5UQ",portada:"Portada5.webp",titulo:"Animacion logo IG",match:"97%",year:"2024",calidad:"4K",desc:"Composición y Máscaras: Integración de elementos gráficos detrás de sujetos."},
-            {id:"9gqnfDxawBM",portada:"Portada6.webp",titulo:"Montaje técnico",match:"97%",year:"2024",calidad:"4K",desc:"VFX & Limpieza: Eliminación de objetos no deseados y parches digitales."},
-            {id:"LGx94GFHouA",portada:"Portada7.webp",titulo:"Propuesta portafolio",match:"97%",year:"2024",calidad:"4K",desc:"Color Grading: Etalonaje digital profesional para estética visual coherente."},
-            {id:"uHU0e6H3sdo",portada:"Portada8.webp",titulo:"El Infiltrado",match:"97%",year:"2024",calidad:"4K",desc:"Efectos Digitales: Creación de texturas y mapas de desplazamiento."},
-            {id:"_g7NjzeHbjw",portada:"Portada9.webp",titulo:"Intro logo 3D",match:"97%",year:"2024",calidad:"4K",desc:"Final Cut & Exportación: Optimización para diferentes plataformas digitales."},
-            {id:"H2mck1Yhdm8",portada:"Portada10.webp",titulo:"Video Reel IG",match:"97%",year:"2024",calidad:"4K",desc:"Time-remapping y curvas de velocidad para producciones de alto impacto."}
-        ];
+    <!-- SECCIÓN DE CONTACTO -->
+    <section id="contacto" class="py-20 px-6 max-w-4xl mx-auto text-center border-t border-slate-800/60">
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-4">¿Hablamos sobre tu próximo proyecto?</h2>
+        <p class="text-slate-400 text-sm max-w-xl mx-auto mb-8">Estoy abierto a nuevas oportunidades de colaboración, desarrollo web o móvil.</p>
+        <div class="inline-flex flex-wrap justify-center gap-4">
+            <a href="mailto:tu-correo@example.com" class="px-6 py-3 bg-slate-800 border border-slate-700 text-slate-200 text-sm font-semibold rounded-xl hover:bg-slate-700 transition-all flex items-center gap-2">
+                <i class="fa-solid fa-envelope text-violet-400"></i> tu-correo@example.com
+            </a>
+            <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-slate-800 border border-slate-700 text-slate-200 text-sm font-semibold rounded-xl hover:bg-slate-700 transition-all flex items-center gap-2">
+                <i class="fa-brands fa-github text-violet-400"></i> GitHub
+            </a>
+            <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-slate-800 border border-slate-700 text-slate-200 text-sm font-semibold rounded-xl hover:bg-slate-700 transition-all flex items-center gap-2">
+                <i class="fa-brands fa-linkedin text-violet-400"></i> LinkedIn
+            </a>
+        </div>
+    </section>
 
-        const misDisenos = [
-            {portada:"1772753035396.jpg",titulo:"Render Blender 1"},
-            {portada:"Render2.png",titulo:"Render Blender 2"},
-            {portada:"Render3.png",titulo:"Render Blender 3"},
-            {portada:"Render4.png",titulo:"Render Blender 4"},
-            {portada:"RenderBlender5.png",titulo:"Render Blender 5"}
-        ];
+    <!-- FOOTER -->
+    <footer class="py-8 px-6 text-center border-t border-slate-900 bg-slate-950 text-xs text-slate-500">
+        <p>© 2026 Tu Nombre. Todos los derechos reservados. Diseñado con Tailwind CSS.</p>
+    </footer>
 
-        const miExperiencia = [
-            {portada:"IMG-20210716-WA0020.webp",titulo:"Senior Video Editor",desc:"Más de 9 años dominando la narrativa rítmica y montaje avanzado."},
-            {portada:"IMG-20221010-WA0005.webp",titulo:"Motion Designer",desc:"Especialista en After Effects, VFX y composición digital."},
-            {portada:"IMG_20161204_111152.webp",titulo:"Post-Productor",desc:"Gestión completa de flujo de trabajo, desde proxies hasta color grading."},
-            {portada:"IMG-20201215-WA0135.webp",titulo:"Post-Productor",desc:"14 meses como Editor post-productor en la empresa Caraota Digital."},
-            {portada:"foto globo.webp",titulo:"Camarografo",desc:"8 meses como camargrafo en Globovisión."},
-            {portada:"IMG-20221010-WA0005.webp",titulo:"Animador de Gráficas AE",desc:"Coordinador del departamento de Graficas y Animación en MDATV."},
-            {portada:"IMG-20221011-WA0020.webp",titulo:"Post-Productor",desc:"Post-productor en America Digital."},
-            {portada:"IMG-20220316-WA0009.webp",titulo:"Docente",desc:"Auxiliar docente de la cátedra Teoria y Práctica de la televisión en la Universidad Monteávila."},
-            {portada:"Screenshot-29.png",titulo:"UI/UX",desc:"Encargado de la interfaz de usuario de la app y versión web mobile de Discoper LLC."}
-        ];
-
-        // === FUNCIONES PRINCIPALES ===
-        function openLogin() {
-            document.getElementById('loginModal').style.display = 'flex';
-        }
-
-        function validarAcceso() {
-            const user = document.getElementById('userInput').value.toLowerCase().trim();
-            const wrapper = document.getElementById('netflix-wrapper');
-            
-            if(!user) {
-                alert("Por favor, ingresa un nombre para tu perfil.");
-                return;
-            }
-
-            // Fade Out suave
-            wrapper.style.opacity = "0";
-            
-            setTimeout(() => {
-                document.getElementById('sectionPerfiles').style.display = 'none';
-                document.getElementById('loginModal').style.display = 'none';
-                document.getElementById('mainCatalog').style.display = 'block';
-                wrapper.classList.remove('perfiles-activos');
-
-                // Ruteo inteligente por perfil
-                if(user === "invitado") mostrarCatalogo();
-                else if(user === "esposita" || user === "valeria") mostrarPerfilValeria();
-                else mostrarCatalogoProgramador(user);
-
-                wrapper.style.opacity = "1";
-                window.scrollTo(0, 0);
-            }, 600);
-        }
-
-        function moverAlEfecto(index) {
-            const contenedor = document.querySelector('.top-10-wrapper');
-            if(!contenedor) return;
-            
-            const tarjetas = document.querySelectorAll('.top-10-card');
-            const anchoTarjeta = tarjetas[0].offsetWidth + 40;
-            const desplazar = Math.max(0, (index - 1) * (anchoTarjeta * 0.85));
-            
-            contenedor.scrollTo({left: desplazar, behavior: 'smooth'});
-        }
-
-        function mostrarCatalogo() {
-            document.getElementById('mainCatalog').innerHTML = `
-                <section class="hero-container">
-                    <div class="hero-video-background">
-                        <iframe src="https://www.youtube-nocookie.com/embed/sj7p0fIJyx8?autoplay=1&mute=1&controls=0&loop=1&playlist=sj7p0fIJyx8&rel=0&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media"></iframe>
-                    </div>
-                    <div class="hero-overlay">
-                        <div class="hero-content">
-                            <h1>JUAN</h1>
-                            <h3>POST-PRODUCTOR SENIOR</h3>
-                            <p class="hero-description">Especialista en narrativa visual, VFX y Motion Graphics de alto nivel.</p>
-                            <div class="hero-buttons">
-                                <button class="btn-play" onclick="abrirDetalleNetflix(0)">▶ Reproducir</button>
-                                <button class="btn-info" onclick="abrirDetalleNetflix(0)">ⓘ Más info</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <h2 class="row-title">Los 10 más populares de Juan hoy</h2>
-                <div class="top-10-wrapper">
-                    ${misProyectos.map((proy, index) => `
-                        <div class="top-10-card" onmouseover="moverAlEfecto(${index})">
-                            <span class="number">${index + 1}</span>
-                            <div class="video-thumbnail" onclick="abrirDetalleNetflix(${index})">
-                                <img src="img/${proy.portada}" alt="${proy.titulo}" loading="lazy">
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-
-                <section class="suggested-section">
-                    <h2 class="row-title">Diseño y Composición</h2>
-                    <div class="suggested-grid">
-                        ${misDisenos.map((diseno) => `
-                            <div class="suggested-card">
-                                <div class="video-thumbnail suggested-thumb">
-                                    <img src="img/${diseno.portada}" alt="${diseno.titulo}" loading="lazy">
-                                </div>
-                                <div class="card-info-hover">
-                                    <div class="info-header">
-                                        <span class="match-score">95% Match</span>
-                                        <span class="year-label">2024</span>
-                                    </div>
-                                    <h3 class="card-title">${diseno.titulo}</h3>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </section>
-
-                <section class="experience-section">
-                    <h2 class="row-title">Mi Lista: Experiencia Laboral</h2>
-                    <div class="suggested-grid">
-                        ${miExperiencia.map((exp) => `
-                            <div class="suggested-card">
-                                <div class="video-thumbnail suggested-thumb">
-                                    <img src="img/${exp.portada}" alt="${exp.titulo}" loading="lazy">
-                                </div>
-                                <div class="card-info-hover">
-                                    <div class="info-header">
-                                        <span class="match-score">Seniority: +8 Años</span>
-                                    </div>
-                                    <h3 class="card-title">${exp.titulo}</h3>
-                                    <p class="card-desc">${exp.desc}</p>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </section>
-            `;
-        }
-
-        function mostrarCatalogoProgramador(nombre) {
-            document.getElementById('mainCatalog').innerHTML = `
-                <section class="hero-container programador-hero" style="background-image:url('img/Screenshot-30.png')">
-                    <div class="hero-overlay">
-                        <div class="hero-content programador-content">
-                            <h1>&gt; ${nombre.toUpperCase()} <span class="blink">_</span></h1>
-                            <h3>FULLSTACK DEVELOPER | PYTHON ARCHITECT | SQL | HTML | CSS | FLET | React.js</h3>
-                            <p class="hero-description">
-                                Especialista en convertir lógica compleja en interfaces fluidas. 
-                                Dominando el ecosistema de Python para backend y React/Flet para experiencias de usuario de alto impacto.
-                            </p>
-                            <div class="hero-buttons">
-                                <button class="btn-play">▶ Ejecutar Demo</button>
-                                <button class="btn-info" onclick="location.reload()">ⓘ Cambiar Perfil</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <h2 class="row-title">Proyectos Destacados: Backend & Algoritmos</h2>
-                <div class="suggested-grid">
-                    <div class="suggested-card">
-                        <div class="video-thumbnail suggested-thumb">
-                            <img src="img/programadorarrecho.png" alt="Full stack" loading="lazy">
-                        </div>
-                        <div class="card-info-hover">
-                            <div class="info-header"><span class="match-score">99% Match</span></div>
-                            <h3 class="card-title">Full stack</h3>
-                            <p class="card-desc">Arquitectura Escalable: Conectamos el código directamente con tu Librería de Medios.</p>
-                        </div>
-                    </div>
-                    <div class="suggested-card">
-                        <div class="video-thumbnail suggested-thumb">
-                            <img src="img/bac80e392af64d7a6cd2f6353a3531f8.jpg" alt="Frontend" loading="lazy">
-                        </div>
-                        <div class="card-info-hover">
-                            <div class="info-header"><span class="match-score">Python / GameDev</span></div>
-                            <h3 class="card-title">Frontend</h3>
-                            <p class="card-desc">WordPress + Media Library integration.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <h2 class="row-title">Stack Tecnológico</h2>
-                <div class="tech-stack">
-                    <span class="tech-tag">PYTHON</span>
-                    <span class="tech-tag">SQL SERVER</span>
-                    <span class="tech-tag">FLET</span>
-                    <span class="tech-tag">REACT</span>
-                    <span class="tech-tag">DJANGO</span>
-                </div>
-            `;
-        }
-
-        function mostrarPerfilValeria() {
-            document.getElementById('mainCatalog').innerHTML = `
-                <div class="valeria-hero">
-                    <div class="valeria-content">
-                        <div class="valeria-portrait">
-                            <img src="img/ellayyo.webp" alt="Valeria" loading="lazy">
-                        </div>
-                        <div class="valeria-text">
-                            <div class="valeria-header">
-                                <span class="match-score">99% de coincidencia</span>
-                                <span style="color:var(--text-secondary)">2026</span>
-                                <span style="border:1px solid var(--text-secondary);padding:.3rem .6rem;font-size:.9rem;border-radius:3px">16+</span>
-                            </div>
-                            <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:2rem">
-                                <div class="valeria-badge">TOP 1</div>
-                                <span style="font-weight:700;font-size:1.4rem">N.º 1 en el corazón de Juan hoy</span>
-                            </div>
-                            <h1 class="valeria-title">VALERIA</h1>
-                            <p class="valeria-desc">
-                                Una historia original de amor, proyectos y sueños compartidos. 
-                                Protagonizada por la mujer que inspira cada línea de código y cada edición.
-                                Su esposo encuentra la manera de enamorarla todos los días.
-                            </p>
-                            <div class="valeria-buttons">
-                                <button class="btn-reanudar" onclick="location.reload()">◀ Reanudar</button>
-                                <button class="btn-lista">+ Mi lista</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // === MODAL VIDEO ===
-        function abrirDetalleNetflix(index) {
-            const p = misProyectos[index];
-            document.getElementById('modalIframe').src = `https://www.youtube.com/embed/${p.id}?autoplay=1&rel=0`;
-            document.getElementById('modalTitulo').textContent = p.titulo;
-            document.getElementById('modalDesc').innerHTML = `
-                <div class="info-header">
-                    <span class="match-score">${p.match} Match</span>
-                    <span style="color:var(--text-primary)">${p.year}</span>
-                    <span style="border:1px solid #666;padding:.3rem .6rem;font-size:.9rem">${p.calidad}</span>
-                </div>
-                <p style="font-size:1.2rem;line-height:1.7;color:var(--text-secondary)">${p.desc}</p>
-            `;
-            document.getElementById('netflixModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function cerrarNetflixModal() {
-            const modal = document.getElementById('netflixModal');
-            modal.style.display = 'none';
-            document.getElementById('modalIframe').src = "";
-            document.body.style.overflow = 'auto';
-        }
-
-        function cerrarModalExterno(event) {
-            if(event.target.id === 'netflixModal') cerrarNetflixModal();
-        }
-
-        // === EVENT LISTENERS GLOBALES ===
-        document.addEventListener('keydown', e => {
-            if(e.key === 'Escape') cerrarNetflixModal();
-        });
-
-        // Prevenir zoom en mobile
-        document.addEventListener('touchstart', function(event) {
-            if (event.touches.length > 1) {
-                event.preventDefault();
-            }
-        }, {passive: false});
-
-        let touchStart = null;
-        document.addEventListener('touchend', function(event) {
-            const touch = event.changedTouches[0];
-            const scale = event.scale;
-            if (touch && (scale && scale !== 1) || (touchStart && (Math.abs(touch.clientX - touchStart.clientX) < 8 && Math.abs(touch.clientY - touchStart.clientY) < 8))) {
-                event.preventDefault();
-            }
-            touchStart = null;
-        }, {passive: false});
-    </script>
 </body>
 </html>
